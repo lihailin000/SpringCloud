@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: gateway
+
+
+  zipkin:
+    # ���ߵ�ǰ��Ŀzipkin-server���ڵĵ�ַ
+    base-url: http://localhost:9411
+    discoveryClientEnabled: false
+
+  sleuth:
+    sampler:
+      probability: 1.0
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          # gateway
+          enabled: true
+      routes:
+        - predicates:
+            - Path=/jack/**
+          filters:
+            - StripPrefix=1
+          uri: http://localhost:8081/
+server:
+  port: 8090
+
+# localhost:8090/user-service/user/test
+# localhost:8090/order-service/order/query
+
+# localhost:8090/jack/test  ---->   user-service/user/test
+
+# localhost:8090/jack/user/test   ---->   localhost:8081/user/test
