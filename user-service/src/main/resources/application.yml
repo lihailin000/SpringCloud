@@ -5,6 +5,9 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
   application:
     name: user-service
 
@@ -16,4 +19,13 @@ spring:
 #spring.jpa.database=mysql
 #spring.jpa.hibernate.ddl-auto=update
 #spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
-#spring.jpa.show-sql=true
+#feign:
+#  client:
+#    config:
+#      order-service:
+#        loggerLevel:full
+feign:
+  httpclient:
+    enabled: true
+    max-connections: 200
+#spring.jpa.jpashow-sql=true
