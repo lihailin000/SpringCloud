@@ -15,11 +15,12 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr:
+          localhost:8848
     gateway:
       discovery:
         locator:
-          # gateway
+          # 允许gateway服务发现
           enabled: true
       routes:
         - predicates:
