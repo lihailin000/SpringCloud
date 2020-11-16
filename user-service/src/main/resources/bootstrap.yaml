@@ -1,11 +1,12 @@
-spring:
-  cloud:
-    nacos:
-      config:
-        #告诉项目远端的配置中心在哪
-        server-addr: localhost:8848
-        file-extension: yaml
-  application:
-    name: user-service
-  profiles:
-    active: dev
+#spring:
+#  cloud:
+#    nacos:
+#      config:
+#        #告诉项目远端的配置中心在哪
+#        server-addr: localhost:8848
+#        file-extension: yaml
+#  application:
+#    name: user-service
+#  profiles:
+#    active: dev
+s
